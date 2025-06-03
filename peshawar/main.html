@@ -1,0 +1,122 @@
+<html>
+<head>
+  <title>Soul Of Peshawar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+  <!-- Navigation bar -->
+  <nav class = "nav">
+    <img src="logo.png" alt="Logo" class="logo" >
+    <br>
+    <img src="name.png" alt="name" class="name">
+    <ul>
+      <li><a href="main.html">Home</a></li>
+      <li><a href="tours.html">Places to Visit</a></li>
+      <li><a href="places/ridebook.html">Book a ride</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+  </nav>
+  </header>
+
+  <!--Slider Section-->
+  <div class="slider">
+    <img src="destinations1/islamia college.png"  class="active">
+    <img src="destinations1/masjidmk1.jpg">
+    <img src="destinations1/Chowk Yadgar2.jpg">
+    <img src="destinations1/Balahisar1.jpg">
+    <img src="destinations1/Edwardes college.png">
+    <img src="destinations1/UOP.png">
+    <button onclick="prev()">❮</button>
+    <button onclick="next()">❯</button>
+  </div>
+
+  <!--JS for Slider-->
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slider img');
+
+    function showSlide(n) {
+      slides.forEach(img => img.classList.remove('active'));
+      slides[n].classList.add('active');
+    }
+    
+    function next() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    
+    function prev() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+    
+    // Auto-advance every 5 seconds
+    setInterval(next, 6000);
+
+  </script>
+    
+  <!-- search Bar-->
+
+  <div class="search">
+    <h1>FIND YOUR TOURS</h1>
+    <br>
+    <label for="destination">Where do you want to go?</label>
+    <br><br>
+    <select id="destination" onchange="window.location.href=this.value; ">
+      <option value="">Select a place</option>
+      <option value="places/forts.html">Bala Hisar Fort</option>
+      <option value="places/holyplacesc.html">Balmiki mandir</option>
+      <option value="places/forts.html">Baab-e-Khyber</option>
+      <option value="places/publicsq.html">Chowk Yadgar</option>
+      <option value="places/universities.html">Edwardes College</option>
+      <option value="places/heritage.html">Gorkhatri</option>
+      <option value="places/holyplacesc.html">Gurdawara Bhai Joga Singh</option>
+      <option value="places/hospital.html">Hayatabad Medical Complex</option>
+      <option value="places/universities.html">Islamia College</option>
+      <option value="places/forts.html">Jamrud Fort</option>
+      <option value="places/entertaintment.html">Jinnah Park</option>
+      <option value="places/hospital.html">Khyber Teaching Hospital</option>
+      <option value="places/shopping.html">Khyber Bazaar</option>
+      <option value="places/entertaintment.html">Khalid-Bin-Waleed Park</option>
+      <option value="places/hospital.html">Lady Reading Hospital</option>
+      <option value="places/holyplacesc.html">Masjid Mahabat Khan</option>
+      <option value="places/heritage.html">Peshawar Museum</option>
+      <option value="places/development.html">Peshawar Zoo</option>
+      <option value="places/shopping.html">Qissa Khwani Bazaar</option>
+      <option value="places/publicsq.html">Rehman Baba's Shrine</option>
+      <option value="places/shopping.html">Saddar Bazaar</option>
+      <option value="places/forts.html">Seven Gates of City</option>
+      <option value="places/heritage.html">Sethi Haveli</option>
+      <option value="places/entertaintment.html">Shahi Bagh</option>
+      <option value="places/publicsq.html">Sir Cunninghum Clock Tower</option>
+      <option value="places/holyplacesc.html">St. John's Church</option>
+      <option value="places/holyplacesc.html">St. Micheal's Church</option>
+      <option value="places/holyplacesc.html ">Sunehri Masjid</option>
+      <option value="places/universities.html">University of Peshawar</option>
+      <option value="places/development.html">Warsak Dam</option>
+      <option value="places/entertaintment.html">Wazir Bagh</option>
+    </select>
+  </div>
+
+<!-- Review Display Area -->
+  <div class="review-section">
+    <h2>What Visitors Say</h2>
+
+    <div class="review">"Great experience!" — Ali </div>
+    <div class="review">"Amazing experience!" — Faizan </div>
+    <div class="review">"Loved the sites!" — Farah </div>
+
+    <form class="review-form" action="http://localhost/psh/save_review.php" method="POST">
+      <textarea name="review_text" placeholder="Your review" required></textarea>
+      <input name="reviewer_name" placeholder="Your name" required>
+      <button type="submit">Post Review</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Our Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>
