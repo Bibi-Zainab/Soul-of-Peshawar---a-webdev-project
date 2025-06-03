@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Your Car</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #d0c6b1;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #0d5934;
+      text-align: center;
+      padding: 20px 0;
+      height: 150px;
+    }
+    
+    header img {
+      max-width: 130px;
+      height: 130px;
+    }
+    
+    .form-container {
+      width: 90%;
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #e7dec9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    h2 {
+      color: #0b3c24;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #0b3c24;
+      font-weight: bold;
+    }
+    
+    select, input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: #d0c6b1;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    
+    .fare-display {
+      background-color: #d0c6b1;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+    
+    button {
+      width: 100%;
+      background-color: #0b3c24;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+    button:hover {
+      background-color: #0d5934;
+    }
+    
+    footer {
+      background-color: #0b3c24;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+
+    #cnicField {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<header> 
+  <img src="in_logo.png" alt="Logo" class="logo">
+</header>
+
+<div class="form-container">
+  <h2>Book Your Ride</h2>
+
+  <form action="http:\\localhost\psh\process1.php" method="POST">
+
+    <!-- Pickup Location -->
+    <label for="pickupLocation">Pickup Location:</label>
+    <select name="pick" id="pickupLocation" onchange="calculateFare()">
+      <option value="">Select Pickup Location</option>
+      <option value="Hayatabad">Hayatabad</option>
+      <option value="Saddar">Saddar</option>
+      <option value="University Town">University Town</option>
+      <option value="Tehkal">Tehkal</option>
+      <option value="Chowk Yadgar">Chowk Yadgar</option>
+    </select>
+
+    <!-- Destination Location -->
+    <label for="destinationLocation">Destination Location:</label>
+    <select name="drop" id="destinationLocation" onchange="calculateFare()">
+      <option value="">Select Destination Location</option>
+      <option value="Balmiki mandir">Balmiki mandir</option>
+      <option value="Bala Hisar Fort">Bala Hisar Fort</option>
+      <option value="Baab-e-Khyber">Baab-e-Khyber</option>
+      <option value="Chowk Yadgar">Chowk Yadgar</option>
+      <option value="Edwardes College">Edwardes College</option>
+      <option value="Gorkhatri">Gorkhatri</option>
+      <option value="Gurdawara Bhai Joga Singh">Gurdawara Bhai Joga Singh</option>
+      <option value="Hayatabad Medical Complex">Hayatabad Medical Complex</option>
+      <option value="Islamia College">Islamia College</option>
+      <option value="Jamrud Fort">Jamrud Fort</option>
+      <option value="Jinnah Park">Jinnah Park</option>
+      <option value="Khyber Teaching Hospital">Khyber Teaching Hospital</option>
+      <option value="Khyber Bazaar">Khyber Bazaar</option>
+      <option value="Khalid-Bin-Waleed Park">Khalid-Bin-Waleed Park</option>
+      <option value="Lady Reading Hospital">Lady Reading Hospital</option>
+      <option value="Masjid Mahabat Khan">Masjid Mahabat Khan</option>
+      <option value="Peshawar Museum">Peshawar Museum</option>
+      <option value="Peshawar Zoo">Peshawar Zoo</option>
+      <option value="Qissa Khwani">Qissa Khwani Bazaar</option>
+      <option value="Rehman Baba's Shrine">Rehman Baba's Shrine</option>
+      <option value="Saddar Bazaar">Saddar Bazaar</option>
+      <option value="Seven Gates of City">Seven Gates of City</option>
+      <option value="Sethi Haveli">Sethi Haveli</option>
+      <option value="Shahi Bagh">Shahi Bagh</option>
+      <option value="Sir Cunninghum Clock Tower">Sir Cunninghum Clock Tower</option>
+      <option value="St. John's Church">St. John's Church</option>
+      <option value="St. Micheal's Church">St. Micheal's Church</option>
+      <option value="Sunehri Masjid">Sunehri Masjid</option>
+      <option value="University of Peshawar">University of Peshawar</option>
+      <option value="Wazir Bagh">Wazir Bagh</option>
+      <option value="Waarsak Dam">Warsak Dam</option>
+    </select>
+
+    <!-- Fare Display -->
+    <div id="fareDisplay" class="fare-display">Select both locations to see fare.</div>
+
+    <!-- Full Name -->
+    <label for="fullName">Full Name:</label>
+    <input type="text" name="fullName" id="fullName" required>
+
+    
+    <!-- Driver Option -->
+<label>Driver Option:</label>
+<div style="margin-bottom: 15px;">
+  <label>
+    <input type="radio" name="driverOption" value="withDriver" checked onchange="toggleCNIC()">
+    With Driver (no CNIC needed)
+  </label>
+  <br>
+  <label>
+    <input type="radio" name="driverOption" value="withoutDriver" onchange="toggleCNIC()">
+    Without Driver (provide CNIC)
+  </label>
+</div>
+
+<!-- CNIC Field -->
+<div id="cnicField" style="display: none;">
+  <label for="cnic">Your CNIC:</label>
+  <input type="text" id="cnic" name="cnic" placeholder="Enter 13-digit CNIC without dashes" pattern="[0-9]{13}">
+</div>
+
+    <!-- Number of Persons -->
+    <label for="noOfPersons">Number of Persons:</label>
+    <input type="number" name="noOfPersons" id="noOfPersons" min="1" required>
+
+    <!-- Email -->
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <!-- Phone Number -->
+    <label for="phone">Phone Number:</label>
+    <input type="tel" name="phone" id="phone" required>
+
+    <!-- Special Requests -->
+    <label for="message">Special Requests:</label>
+    <textarea name="message" id="message" rows="3"></textarea>
+
+    <!-- Submit Button -->
+    <button type="submit">Book Now</button>
+  </form>
+</div>
+
+<script>
+  function toggleCNIC() {
+  const withoutDriver = document.querySelector('input[name="driverOption"]:checked').value === "withoutDriver";
+  const cnicField = document.getElementById("cnicField");
+  cnicField.style.display = withoutDriver ? "block" : "none";
+  
+  // Make CNIC field required only when visible
+  document.getElementById("cnic").required = withoutDriver;
+}
+
+  function calculateFare() {
+    const pickup = document.getElementById("pickupLocation").value;
+    const destination = document.getElementById("destinationLocation").value;
+    const fareDisplay = document.getElementById("fareDisplay");
+
+    if (!pickup || !destination) {
+      fareDisplay.textContent = "Select both locations to see fare.";
+      return;
+    }
+
+    const universityRoad = ["University of Peshawar", "Peshawar Zoo", "Islamia College", "Khyber Teaching Hospital"];
+    const city = ["Shahi Bagh", "Jinnah Park", "Qissa Khwani", "Khyber Bazaar", "Lady Reading Hospital", "Bala Hisar Fort", "Seven Gates of City", "Wazir Bagh", "Rehman Baba's Shrine"];
+    const peshawarcantt = ["Khalid-Bin-Waleed Park","Balmiki Mandir", "Saddar Bazaar", "Sunehri Masjid", "St. John's Church", "St. Micheal's Church"];
+    const mallRoad = ["Edwardes College", "Peshawar Museum"];
+    const interiorcity = ["Gorkhatri", "Sethi Haveli", "Masjid Mahabat Khan", "Sir Cunninghum CLock Tower", "Chowk Yadgar"];
+    const khyberagency = ["Baab-e-Khyber", "Jamrud Fort"];
+    const standalone = ["Hayatabad Medical Complex", "Gurdawara Bhai Joga Singh"];
+
+    const fares = {
+      "Hayatabad": {
+        "University Road": 300,
+        "City": 1400,
+        "Peshawar Cantt": 800,
+        "Mall Road": 900,
+        "Khyber Agency": 4000,
+        "Interior City": 1000,
+        "Hayatabad Medical Complex": 200,
+        "Gurdawara Bhai Joga Singh": 1400,
+        "Warsak Dam":4000
+      },
+      "Saddar": {
+        "University Road": 600,
+        "City": 900,
+        "Peshawar Cantt": 200,
+        "Mall Road": 400,
+        "Khyber Agency": 4000,
+        "Interior City": 700,
+        "Hayatabad Medical Complex": 500,
+        "Gurdawara Bhai Joga Singh": 500,
+        "Warsak Dam":4000
+      },
+      "University Town": {
+        "University Road": 200,
+        "City": 1200,
+        "Peshawar Cantt": 700,
+        "Mall Road": 750,
+        "Khyber Agency": 4000,
+        "Interior City": 900,
+        "Hayatabad Medical Complex": 300,
+        "Gurdawara Bhai Joga Singh": 1000,
+        "Warsak Dam":4000
+      },
+      "Chowk Yadgar": {
+        "University Road": 1200,
+        "City": 300,
+        "Peshawar Cantt": 500,
+        "Mall Road": 500,
+        "Khyber Agency": 4000,
+        "Interior City": 300,
+        "Hayatabad Medical Complex": 1000,
+        "Gurdawara Bhai Joga Singh": 600,
+        "Warsak Dam":4000
+      },
+      "Tehkal": {
+        "University Road": 400,
+        "City": 800,
+        "Peshawar Cantt": 400,
+        "Mall Road": 300,
+        "Khyber Agency": 4000,
+        "Interior City": 800,
+        "Hayatabad Medical Complex": 600,
+        "Gurdawara Bhai Joga Singh": 900,
+        "Warsak Dam":4000
+      }
+    };
+
+    function getCategory(dest) {
+      if (universityRoad.includes(dest)) return "University Road";
+      if (city.includes(dest)) return "City";
+      if (peshawarcantt.includes(dest)) return "Peshawar Cantt";
+      if (mallRoad.includes(dest)) return "Mall Road";
+      if (khyberagency.includes(dest)) return "Khyber Agency";
+      if (interiorcity.includes(dest)) return "Interior City";
+      if (standalone.includes(dest)) return dest;
+      return null;
+    }
+
+    const destCategory = getCategory(destination);
+
+    if (fares[pickup] && fares[pickup][destCategory]) {
+      fareDisplay.textContent = "Estimated Fare: Rs. " + fares[pickup][destCategory];
+    } else {
+      fareDisplay.textContent = "Try to book again.";
+    }
+  }
+
+</script>
+
+<footer>
+  <p>&copy; 2025 Our Website. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

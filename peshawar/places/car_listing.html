@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Your Car</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f0f0f0; text-align: center; }
+    .car-card { border: 1px solid #ccc; padding: 20px; margin: 20px auto; width: 300px; background: #fff; border-radius: 10px; }
+    .car-card h3 { margin-bottom: 10px; }
+    button { padding: 10px 20px; border: none; background-color: #0d5934; color: #fff; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h1>Select Your Car</h1>
+
+  <div class="car-card">
+    <h3>Honda Civic</h3>
+    <button onclick="bookCar('Suzuki Cultus')">Book Now</button>
+  </div>
+
+  <div class="car-card">
+    <h3>Corolla Altis</h3>
+    <button onclick="bookCar('Mehran')">Book Now</button>
+  </div>
+
+  <div class="car-card">
+    <h3>Prado TZ</h3>
+    <button onclick="bookCar('Prado TZ')">Book Now</button>
+  </div>
+
+  <script>
+    function bookCar(carName) {
+      window.location.href = 'booking_form.html?car=' + encodeURIComponent(carName);
+    }
+  </script>
+
+</body>
+</html>

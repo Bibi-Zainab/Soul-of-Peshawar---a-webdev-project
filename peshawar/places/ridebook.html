@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book a Transport – Visit Pakistan</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #d0c6b1;
+    }
+    /* Header Section */
+    
+    header {
+      background-color: #0d5934;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    header img {
+      max-width: 380px;
+      height: auto;
+    }
+    /* Vehicle Gallery */
+    .vehicles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px auto;
+      max-width: 1200px;
+    }
+    .vehicles img {
+      width: 180px;
+      height: 100px;
+      object-fit: fit;
+      border-radius: 8px;
+      border: 2px solid #0d5934;
+    }
+    
+    .vehicles img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Vehicle Cards */
+    .card {
+      display: flex;
+      background-color: #FFFFF0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 1000px;
+      margin: 30px auto;
+      overflow: hidden;
+    }
+    
+    .card-img {
+      width: 400px; /* Fixed width for image container */
+      height: 250px; /* Fixed height for consistent sizing */
+      overflow: hidden; /* Ensures no image overflow */
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      max-width: 400px;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .card-details {
+      padding: 20px;
+      flex: 1;
+    }
+    
+    .card-details h2 {
+      color: #0d5934;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    
+    .features {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .features li {
+      width: 48%;
+      font-size: 1rem;
+    }
+    
+    .card-action {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .driver-info {
+      color: #666;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+    
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    button.book {
+      background-color: orange;
+    }
+    
+    button.call {
+      background-color: limegreen;
+    }
+    
+    button:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .card-img img {
+        max-width: 100%;
+        height: 200px;
+      }
+      
+      .features li {
+        width: 100%;
+      }
+    }
+      /* Footer Styles */
+footer {
+  background-color: #0b3c24;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="in_logo.png" alt="Logo" width="150px" height="70px">
+    <div class="vehicles">
+      <img src="cars/car 1.png" alt="Car 1">
+      <img src="cars/car 4.png" alt="Car 2">
+      <img src="cars/car 2.png" alt="Car 3">
+      <img src="cars/car 3.png" alt="Car 4">
+    </div>
+  </header>
+    
+  </section>
+
+  <div class="card">
+    <div class="card-img">
+      <img src="cars/toyota corolla 2.png" alt="Toyota Corolla">
+    </div>
+    <div class="card-details">
+      <h2>Toyota Corolla</h2>
+      <ul class="features">
+        <li>✅Flexible rentals</li>
+        <li>✅Price Match Guarantee</li>
+        <li>✅Fuel</li>
+        <li>❌Luggage Rack</li>
+        <li>✅No hidden fees</li>
+        <li>✅AC or Heater</li>
+        <li>❌All toll tax</li>
+      </ul>
+    </div>
+    <div class="card-action">
+      <p class="driver-info">With Driver<br>(3-4 Person)</p>
+      <div class="buttons">
+        <a href="book Now.html" title="book now">
+          <button class="book">Book Now</button>
+        </a>
+        <a href="contactus.html" title="call now">
+        <button class="call">Call Now</button>
+      </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img">
+      <img src="cars/mehran 3.png" alt="Mehran">
+    </div>
+    <div class="card-details">
+      <h2>Mehran</h2>
+      <ul class="features">
+        <li>✅Flexible rentals</li>
+        <li>✅Price Match Guarantee</li>
+        <li>✅Fuel</li>
+        <li>❌ Luggage Rack</li>
+        <li>✅ No hidden fees</li>
+        <li>✅ AC or Heater</li>
+        <li>❌ All toll tax included</li>
+      </ul>
+    </div>
+    <div class="card-action">
+      <p class="driver-info">With Driver<br>(3-4 Person)</p>
+      <div class="buttons">
+        <a href="book Now.html" title="book now">
+          <button class="book">Book Now</button>
+        </a>
+        <a href="contactus.html" title="call now">
+          <button class="call">Call Now</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img">
+      <img src="cars/Suzuki Cultus.jpeg" alt="Suzuki Cultus">
+    </div>
+    <div class="card-details">
+      <h2>Suzuki Cultus</h2>
+      <ul class="features">
+        <li>✅ Flexible rentals</li>
+        <li>✅ Price Match Guarantee</li>
+        <li>✅ Fuel</li>
+        <li>❌ Luggage Rack</li>
+        <li>✅ No hidden fees</li>
+        <li>✅ AC or Heater</li>
+        <li>❌ All toll tax included</li>
+      </ul>
+    </div>
+    <div class="card-action">
+      <p class="driver-info">With Driver<br>(3-4 Person)</p>
+      <div class="buttons">
+        <a href="book Now.html" title="book now">
+          <button class="book">Book Now</button>
+        </a>
+        <a href="contactus.html" title="call now">
+          <button class="call">Call Now</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img">
+      <img src="cars/toyota rav.jpeg" alt="Toyota rav4">
+    </div>
+    <div class="card-details">
+      <h2>Toyota Rav4</h2>
+      <ul class="features">
+        <li>✅ Flexible rentals</li>
+        <li>✅ Price Match Guarantee</li>
+        <li>✅ Fuel</li>
+        <li>❌ Luggage Rack</li>
+        <li>✅ No hidden fees</li>
+        <li>✅ AC or Heater</li>
+        <li>❌ All toll tax</li>
+      </ul>
+    </div>
+    <div class="card-action">
+      <p class="driver-info">With Driver<br>(4-5 Person)</p>
+      <div class="buttons">
+        <a href="book Now.html">
+          <button class="book">Book Now</button>
+        </a>
+        <a href="contactus.html" title="call now">
+          <button class="call">Call Now</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img">
+      <img src="cars/suzuki alto.png" alt="Suzuki ALto">
+    </div>
+    <div class="card-details">
+      <h2>Suzuki Alto</h2>
+      <ul class="features">
+        <li>✅ Flexible rentals</li>
+        <li>✅ Price Match Guarantee</li>
+        <li>✅ Fuel</li>
+        <li>❌Luggage Rack</li>
+        <li>✅ No hidden fees</li>
+        <li>✅ AC or Heater</li>
+        <li>❌All toll tax</li>
+      </ul>
+    </div>
+    <div class="card-action">
+      <p class="driver-info">With Driver<br>(4 Person)</p>
+      <div class="buttons">
+        <a href="book Now.html" title="book now">
+          <button class="book">Book Now</button>
+        </a>
+        <a href="contactus.html" title="call now">
+          <button class="call">Call Now</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img">
+      <img src="cars/nissan serena.png" alt="Nissan Serena">
+    </div>
+    <div class="card-details">
+      <h2>Nissan serena</h2>
+      <ul class="features">
+        <li>✅ Flexible rentals</li>
+        <li>✅ Price Match Guarantee</li>
+        <li>✅ Fuel</li>
+        <li>✅ Luggage Rack</li>
+        <li>✅ No hidden fees</li>
+        <li>✅ AC or Heater</li>
+        <li>✅ All toll tax</li>
+      </ul>
+    </div>
+    <div class="card-action">
+      <p class="driver-info">With Driver<br>(7-8 Person)</p>
+      <div class="buttons">
+        <a id="bookNowBtn" href="book Now.html">
+          <button class="book">Book Now</button>
+        </a>
+        <a href="contactus.html" title="call now">
+          <button class="call">Call Now</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <footer>
+        <p>&copy; 2025 Our Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

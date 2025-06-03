@@ -1,0 +1,199 @@
+ /* Header Styles */
+        header {
+            background-color: #0d5934;
+            padding: 7px 0;
+            height: 150px;
+            top: 0;
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            
+        }
+        header img {
+            max-width: 380px;
+            height: auto;
+            box-shadow: none;
+        }
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #d0c6b1;;
+        }
+        /* Typography */
+        
+        h1 {
+            font-size: 35.2px;
+            text-align: center;
+            padding-bottom: 10px;
+            background-color: #0b3c24;
+            color: white;
+            padding: 15px 0;
+            margin: 0 0 20px 0;
+        }
+        h2 {
+            font-size: 28.8px;
+            color: #0d5934;
+            border-bottom: 1px solid #0d5934;
+            margin: 20px 0 15px;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+        /* Links */
+        a {
+            color: #0d5934;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #0b3c24;
+            text-decoration: underline;
+        }
+        /* Images */
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 3px solid #0d5934;
+        }
+        /* Gallery */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .gallery-item {
+            margin-top: 10px;
+            flex: 0 0 auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            background-color: #fff;
+            padding: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .gallery-item:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            border-radius: 5px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+        .gallery-item h2 {
+            margin: 15px 0 10px;
+            font-size: 1.3em;
+        }
+        .gallery-item h4 {
+            color: #666;
+            font-weight: normal;
+            margin: 0 0 10px;
+            font-size: 0.95em;
+            min-height: 60px;
+        }
+        /* Ride Button */
+        .btn {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn p {
+            font-size: 1.3rem;
+            color: #0b3c24;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .btn input[type="button"] {
+            background: #0d5934;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 25px; /* Rounded edges */
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn input[type="button"]:hover {
+            background: #0b3c24;
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+
+        .btn input[type="button"]:active {
+            transform: scale(0.98);
+        }
+        /* Info Boxes */
+        .infobox {
+            width: 600px;
+            border: 1px solid #aaa;
+            background-color: #f9f9f9;
+            margin: 10px;
+            font-size: 14px;
+        }
+    
+        .infobox-img {
+            width: 100%;
+            height: auto;    
+        }   
+        /* Lists */
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        /* Map */
+        iframe {
+            border: 2px solid #0d5934;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+        }
+        /* Horizontal Rule */
+        hr {
+            border: 0;
+            height: 2px;
+            background-color: #0d5934;
+            margin: 30px 0;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .infobox {
+                float: none;
+                max-width: 100%;
+                margin: 20px 0;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
